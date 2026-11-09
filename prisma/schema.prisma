@@ -1,0 +1,127 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id           Int      @id @default(1)
+  name         String
+  role         Json     // { id: string, en: string }
+  tagline      Json     // { id: string, en: string }
+  bio          Json     // { id: string, en: string }
+  photoUrl     String?  @map("photo_url")
+  showPhoto    Boolean  @default(false) @map("show_photo")
+  logoUrl      String?  @map("logo_url")
+  cvUrlId      String?  @map("cv_url_id")
+  cvUrlEn      String?  @map("cv_url_en")
+  isAvailable  Boolean  @default(true) @map("is_available")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("profile")
+}
+
+model SkillGroup {
+  id        String   @id @default(cuid())
+  name      Json     // { id: string, en: string }
+  sortOrder Int      @default(0) @map("sort_order")
+  skills    Skill[]
+
+  @@map("skill_groups")
+}
+
+model Skill {
+  id        String     @id @default(cuid())
+  groupId   String     @map("group_id")
+  group     SkillGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  name      String
+  icon      String?
+  sortOrder Int        @default(0) @map("sort_order")
+
+  @@map("skills")
+}
+
+model Experience {
+  id          String   @id @default(cuid())
+  start       String
+  end         String?
+  role        Json     // { id: string, en: string }
+  company     String
+  companyUrl  String?  @map("company_url")
+  description Json     // { id: string, en: string }
+  tech        String[]
+  sortOrder   Int      @default(0) @map("sort_order")
+
+  @@map("experiences")
+}
+
+model Project {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  title        Json     // { id: string, en: string }
+  summary      Json     // { id: string, en: string }
+  thumbnailUrl String?  @map("thumbnail_url")
+  tech         String[]
+  liveUrl      String?  @map("live_url")
+  repoUrl      String?  @map("repo_url")
+  year         String
+  isFeatured   Boolean  @default(false) @map("is_featured")
+  isPublished  Boolean  @default(true) @map("is_published")
+  hasDetail    Boolean  @default(false) @map("has_detail")
+  content      Json?    // { id: string, en: string }
+  gallery      String[]
+  sortOrder    Int      @default(0) @map("sort_order")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("projects")
+}
+
+model Post {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       Json      // { id: string, en: string }
+  excerpt     Json      // { id: string, en: string }
+  content     Json      // { id: string, en: string }
+  coverUrl    String?   @map("cover_url")
+  tags        String[]
+  status      String    @default("published") // "draft" | "published"
+  publishedAt DateTime? @default(now()) @map("published_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@map("posts")
+}
+
+model SocialLink {
+  id        String  @id @default(cuid())
+  platform  String
+  url       String
+  isVisible Boolean @default(true) @map("is_visible")
+  sortOrder Int     @default(0) @map("sort_order")
+
+  @@map("social_links")
+}
+
+model SiteSettings {
+  id              Int      @id @default(1)
+  siteTitle       String   @map("site_title")
+  metaDescription Json     @map("meta_description") // { id: string, en: string }
+  contactEmail    String   @default("email@example.com") @map("contact_email")
+  faviconUrl      String?  @map("favicon_url")
+  ogImageUrl      String?  @map("og_image_url")
+  visibleSections String[] @map("visible_sections") // ["about", "skills", "experience", "projects", "blog"]
+
+  @@map("site_settings")
+}
+
+model AdminUser {
+  id             String  @id @default(cuid())
+  email          String  @unique
+  passwordHash   String? @map("password_hash")
+  githubUsername String? @map("github_username")
+
+  @@map("admin_users")
+}
+

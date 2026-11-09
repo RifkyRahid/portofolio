@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "about": "Tentang",
+    "skills": "Keahlian",
+    "experience": "Pengalaman",
+    "projects": "Proyek",
+    "blog": "Tulisan",
+    "admin": "Panel Admin"
+  },
+  "status": {
+    "available": "Terbuka untuk kesempatan kerja & proyek",
+    "unavailable": "Saat ini sedang fokus pada proyek berjalan"
+  },
+  "sections": {
+    "about": "Tentang",
+    "skills": "Keahlian Teknis",
+    "experience": "Pengalaman Kerja",
+    "projects": "Proyek Pilihan",
+    "blog": "Catatan & Tulisan Terbaru"
+  },
+  "actions": {
+    "viewResume": "Unduh CV Lengkap (PDF)",
+    "viewAllProjects": "Lihat Arsip Semua Proyek",
+    "viewCaseStudy": "Baca Studi Kasus",
+    "openLiveDemo": "Buka Situs Langsung",
+    "openRepo": "Lihat Kode di GitHub",
+    "readArticle": "Baca Selengkapnya",
+    "viewAllPosts": "Lihat Semua Tulisan",
+    "backToHome": "Kembali ke Halaman Utama",
+    "backToProjects": "Kembali ke Arsip Proyek",
+    "backToBlog": "Kembali ke Daftar Tulisan",
+    "sendEmail": "Kirim Email"
+  },
+  "archive": {
+    "projectsTitle": "Arsip Semua Proyek",
+    "projectsSubtitle": "Daftar lengkap proyek yang pernah dikerjakan beserta teknologi dan tautannya.",
+    "year": "Tahun",
+    "project": "Proyek",
+    "techStack": "Teknologi",
+    "links": "Tautan",
+    "emptyProjects": "Belum ada proyek yang dipublikasikan. Tambahkan melalui panel admin."
+  },
+  "projectDetail": {
+    "year": "Tahun",
+    "techStack": "Teknologi yang Digunakan",
+    "gallery": "Tangkapan Layar & Galeri",
+    "enlargeImage": "Perbesar gambar",
+    "closeImage": "Tutup pratinjau gambar"
+  },
+  "blog": {
+    "title": "Catatan & Tulisan",
+    "subtitle": "Dokumentasi teknis, cerita di balik pembuatan proyek, dan catatan belajar.",
+    "emptyPosts": "Belum ada tulisan yang dipublikasikan.",
+    "onlyInOtherLang": "Catatan: Tulisan ini ditampilkan dari versi bahasa utama karena terjemahan belum tersedia."
+  },
+  "footer": {
+    "inspiredBy": "Inspirasi tata letak dari",
+    "manageInAdmin": "Panel Admin"
+  }
+}
+

@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: 242 240 239; /* #F2F0EF Paper Warm */
+    --color-surface: 234 231 229; /* #EAE7E5 Warm Surface */
+    --color-border: 187 189 188; /* #BBBDBC Stone */
+    --color-text-primary: 30 42 46; /* #1E2A2E Deep Slate Ink */
+    --color-text-secondary: 74 84 88; /* #4A5458 Editorial Body */
+    --color-text-muted: 93 101 104; /* #5D6568 Muted Meta (WCAG AA on bg & surface) */
+    --color-primary: 36 95 115; /* #245F73 Teal */
+    --color-primary-soft: rgba(36, 95, 115, 0.1);
+    --color-accent: 115 51 36; /* #733324 Rust */
+    --color-spotlight: rgba(36, 95, 115, 0.08);
+    --color-code-bg: #1E2A2E;
+    --color-code-text: #F2F0EF;
+    color-scheme: light;
+  }
+
+  html.dark {
+    --color-bg: 14 19 21; /* #0E1315 Obsidian Teal-Charcoal */
+    --color-surface: 22 30 34; /* #161E22 Elevated Dark Slate */
+    --color-border: 44 56 62; /* #2C383E Muted Dark Border */
+    --color-text-primary: 242 240 239; /* #F2F0EF Paper Warm White */
+    --color-text-secondary: 184 192 196; /* #B8C0C4 Secondary Text */
+    --color-text-muted: 141 153 159; /* #8D999F Muted Meta */
+    --color-primary: 100 184 220; /* #64B8DC Luminous Teal */
+    --color-primary-soft: rgba(100, 184, 220, 0.12);
+    --color-accent: 229 138 118; /* #E58A76 Warm Terracotta */
+    --color-spotlight: rgba(100, 184, 220, 0.12);
+    --color-code-bg: #090D0F;
+    --color-code-text: #F2F0EF;
+    color-scheme: dark;
+  }
+
+  html {
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text-primary));
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text-primary));
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgb(var(--color-accent));
+    color: rgb(var(--color-bg));
+  }
+
+  /* R-39: Every enabled interactive control shows pointer cursor */
+  a[href],
+  button:not(:disabled),
+  summary,
+  select:not(:disabled),
+  label[for],
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled),
+  input[type="submit"]:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [role="tab"]:not([aria-disabled="true"]),
+  [role="switch"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  select:disabled,
+  input:disabled,
+  textarea:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+
+  /* R-32: High-contrast focus-visible outline (>= 3:1 against bg in both modes) */
+  :focus-visible {
+    outline: 2px solid rgb(var(--color-primary));
+    outline-offset: 2px;
+  }
+}
+
+/* Markdown prose styling for About bio, Case Studies, and Blog posts */
+.prose-editorial p {
+  margin-bottom: 1.15rem;
+  color: rgb(var(--color-text-secondary));
+  line-height: 1.75;
+}
+
+.prose-editorial p:last-child {
+  margin-bottom: 0;
+}
+
+/* Spec 02-layout-content.md §3: Bold words in bio/prose use accent color */
+.prose-editorial strong {
+  color: rgb(var(--color-accent));
+  font-weight: 600;
+}
+
+.prose-editorial a {
+  color: rgb(var(--color-primary));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+
+.prose-editorial a:hover {
+  color: rgb(var(--color-accent));
+}
+
+.prose-editorial h2 {
+  font-family: var(--font-space-grotesk), sans-serif;
+  color: rgb(var(--color-text-primary));
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.prose-editorial h3 {
+  font-family: var(--font-space-grotesk), sans-serif;
+  color: rgb(var(--color-text-primary));
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-editorial ul,
+.prose-editorial ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.25rem;
+  color: rgb(var(--color-text-secondary));
+}
+
+.prose-editorial ul {
+  list-style-type: disc;
+}
+
+.prose-editorial ol {
+  list-style-type: decimal;
+}
+
+.prose-editorial li {
+  margin-bottom: 0.4rem;
+  line-height: 1.7;
+}
+
+.prose-editorial pre {
+  background-color: var(--color-code-bg);
+  color: var(--color-code-text);
+  border: 1px solid rgb(var(--color-border));
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.prose-editorial code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875em;
+}
+
+.prose-editorial :not(pre) > code {
+  background-color: rgb(var(--color-surface));
+  color: rgb(var(--color-text-primary));
+  border: 1px solid rgb(var(--color-border) / 0.5);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+}
+
+/* R-39: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

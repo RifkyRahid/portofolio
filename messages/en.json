@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "blog": "Writing",
+    "admin": "Admin Panel"
+  },
+  "status": {
+    "available": "Available for work and freelance projects",
+    "unavailable": "Currently focused on ongoing projects"
+  },
+  "sections": {
+    "about": "About",
+    "skills": "Technical Skills",
+    "experience": "Work Experience",
+    "projects": "Selected Projects",
+    "blog": "Recent Notes & Writing"
+  },
+  "actions": {
+    "viewResume": "Download Full Resume (PDF)",
+    "viewAllProjects": "View Full Project Archive",
+    "viewCaseStudy": "Read Case Study",
+    "openLiveDemo": "Open Live Site",
+    "openRepo": "View Source on GitHub",
+    "readArticle": "Read Article",
+    "viewAllPosts": "View All Writing",
+    "backToHome": "Back to Home",
+    "backToProjects": "Back to Project Archive",
+    "backToBlog": "Back to Writing List",
+    "sendEmail": "Send Email"
+  },
+  "archive": {
+    "projectsTitle": "All Projects Archive",
+    "projectsSubtitle": "A complete chronological list of built projects, technical stacks, and links.",
+    "year": "Year",
+    "project": "Project",
+    "techStack": "Built With",
+    "links": "Links",
+    "emptyProjects": "No published projects yet. Add projects from the admin panel."
+  },
+  "projectDetail": {
+    "year": "Year",
+    "techStack": "Technologies Used",
+    "gallery": "Screenshots & Gallery",
+    "enlargeImage": "Enlarge image",
+    "closeImage": "Close image preview"
+  },
+  "blog": {
+    "title": "Notes & Writing",
+    "subtitle": "Technical documentation, behind-the-scenes project notes, and learning logs.",
+    "emptyPosts": "No published posts yet.",
+    "onlyInOtherLang": "Note: Showing the primary language version because a translation is not yet provided."
+  },
+  "footer": {
+    "inspiredBy": "Layout inspired by",
+    "manageInAdmin": "Admin Panel"
+  }
+}
+
