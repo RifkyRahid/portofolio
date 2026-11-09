@@ -109,17 +109,17 @@ export default async function HomePage({
       <div className="mx-auto max-w-[1280px] px-6 md:px-10 lg:px-12">
         <div className="lg:flex lg:justify-between lg:gap-12">
           {/* LEFT COLUMN (Sticky on Desktop >= 1024px) */}
-          <header className="pt-8 pb-12 lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[44%] lg:flex-col lg:justify-between lg:py-24">
+          <header className="pt-8 pb-12 lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[44%] lg:flex-col lg:justify-between lg:py-10 xl:py-14">
             <div>
               {profile?.showPhoto && profile?.photoUrl && (
-                <div className="mb-6">
+                <div className="mb-4">
                   <img
                     src={profile.photoUrl}
                     alt={profile.name}
-                    width={120}
-                    height={120}
+                    width={96}
+                    height={96}
                     fetchPriority="high"
-                    className="w-24 h-24 lg:w-[120px] lg:h-[120px] rounded-md object-cover border border-border grayscale hover:grayscale-0 transition-all duration-300"
+                    className="w-20 h-20 lg:w-24 lg:h-24 rounded-md object-cover border border-border grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
               )}
@@ -134,21 +134,21 @@ export default async function HomePage({
                     className="w-9 h-9 object-contain"
                   />
                 )}
-                <h1 className="font-display text-[36px] leading-[1.12] lg:text-[48px] font-bold tracking-[-0.03em] text-text-primary">
+                <h1 className="font-display text-[34px] leading-[1.1] lg:text-[42px] font-bold tracking-[-0.03em] text-text-primary">
                   {profile?.name ?? "Rifky"}
                 </h1>
               </div>
 
-              <p className="mt-2.5 font-display text-[18px] lg:text-[20px] font-medium text-primary">
+              <p className="mt-2 font-display text-[17px] lg:text-[19px] font-medium text-primary">
                 {getLocalized(profile?.role, locale)}
               </p>
 
-              <p className="mt-3 max-w-md text-[15px] leading-[1.65] text-text-secondary">
+              <p className="mt-2.5 max-w-md text-[14px] lg:text-[15px] leading-[1.6] text-text-secondary">
                 {getLocalized(profile?.tagline, locale)}
               </p>
 
               {/* Availability Status Indicator (static dot per R-19, no endless pulse) */}
-              <div className="mt-5 inline-flex items-center gap-2.5 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-display font-medium text-text-primary">
+              <div className="mt-4 inline-flex items-center gap-2.5 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-display font-medium text-text-primary">
                 <span
                   aria-hidden="true"
                   className={`h-2.5 w-2.5 rounded-full ${
@@ -165,7 +165,7 @@ export default async function HomePage({
               <ScrollSpyNav items={navItems} />
             </div>
 
-            <div className="mt-8 lg:mt-0">
+            <div className="mt-6 lg:mt-4">
               <SocialBar
                 links={socialLinks}
                 email={settings?.contactEmail}
@@ -177,7 +177,7 @@ export default async function HomePage({
           {/* RIGHT COLUMN (Scrolling Content) */}
           <main
             id="main-content"
-            className="pb-20 lg:w-[56%] lg:py-24 space-y-16 lg:space-y-24"
+            className="pb-20 lg:w-[56%] lg:py-10 xl:py-14 space-y-16 lg:space-y-24"
           >
             {/* 01 ABOUT */}
             {showAbout && (

@@ -43,8 +43,8 @@ export function ScrollSpyNav({ items }: { items: NavSectionItem[] }) {
   if (items.length === 0) return null;
 
   return (
-    <nav aria-label="Section navigation" className="hidden lg:block mt-10">
-      <ul className="space-y-1">
+    <nav aria-label="Section navigation" className="hidden lg:block mt-6">
+      <ul className="space-y-0.5">
         {items.map((item) => {
           const isActive = activeId === item.id;
           return (
@@ -53,7 +53,7 @@ export function ScrollSpyNav({ items }: { items: NavSectionItem[] }) {
                 href={`#${item.id}`}
                 onClick={() => setActiveId(item.id)}
                 aria-current={isActive ? "location" : undefined}
-                className="group inline-flex items-center py-2.5 min-h-[44px] text-xs font-display uppercase tracking-[0.08em] transition-colors duration-150"
+                className="group inline-flex items-center py-1.5 min-h-[34px] text-xs font-display uppercase tracking-[0.08em] transition-colors duration-150"
               >
                 <span
                   aria-hidden="true"
