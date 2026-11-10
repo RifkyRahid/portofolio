@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-APP_DIR="/var/www/portfolio"
+APP_DIR="/var/www/portofolio"
 cd "$APP_DIR"
 
 echo "==> 1. Menarik pembaruan kode dari Git..."

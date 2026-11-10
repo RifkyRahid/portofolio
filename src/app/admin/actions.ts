@@ -484,3 +484,57 @@ export async function updateSiteSettingsAction(data: {
   revalidateAllPublicPaths();
 }
 
+export async function updateAdminCredentialsAction(data: {
+  currentPassword: string;
+  newEmail: string;
+  newPassword: string;
+}): Promise<{ ok: boolean; message: string }> {
+  const session = await requireAdmin();
+  const cleanEmail = data.newEmail.trim().toLowerCase();
+  if (!cleanEmail) {
+    return { ok: false, message: "Email baru wajib diisi." };
+  }
+
+  const admin = await prisma.adminUser.findUnique({
+    where: { id: session.id },
+  });
+  if (!admin || !admin.passwordHash) {
+    return { ok: false, message: "Akun admin tidak ditemukan." };
+  }
+
+  const validCurrent = await bcrypt.compare(
+    data.currentPassword,
+    admin.passwordHash
+  );
+  if (!validCurrent) {
+    return { ok: false, message: "Kata sandi saat ini tidak sesuai." };
+  }
+
+  const updateData: { email: string; passwordHash?: string } = {
+    email: cleanEmail,
+  };
+
+  if (data.newPassword.trim()) {
+    if (data.newPassword.trim().length < 8) {
+      return {
+        ok: false,
+        message: "Kata sandi baru minimal harus 8 karakter.",
+      };
+    }
+    updateData.passwordHash = await bcrypt.hash(data.newPassword.trim(), 10);
+  }
+
+  const updated = await prisma.adminUser.update({
+    where: { id: admin.id },
+    data: updateData,
+  });
+
+  await setAdminSessionCookie({ id: updated.id, email: updated.email });
+  revalidateAllPublicPaths();
+  return {
+    ok: true,
+    message: "Email dan kata sandi admin berhasil diperbarui.",
+  };
+}
+
+

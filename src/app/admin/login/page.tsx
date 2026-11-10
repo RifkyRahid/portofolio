@@ -60,8 +60,7 @@ export default function AdminLoginPage() {
               type="email"
               required
               autoComplete="email"
-              defaultValue="admin@portfolio.local"
-              placeholder="admin@portfolio.local"
+              placeholder="Masukkan alamat email..."
               className="w-full rounded-sm border border-border bg-bg px-3.5 py-2.5 text-sm text-text-primary placeholder:text-text-muted"
             />
           </div>
@@ -79,7 +78,6 @@ export default function AdminLoginPage() {
               type="password"
               required
               autoComplete="current-password"
-              defaultValue="admin123"
               placeholder="Masukkan kata sandi..."
               className="w-full rounded-sm border border-border bg-bg px-3.5 py-2.5 text-sm text-text-primary placeholder:text-text-muted"
             />
@@ -93,13 +91,7 @@ export default function AdminLoginPage() {
             {isPending ? "Memverifikasi..." : "Masuk ke Panel Admin"}
           </button>
         </form>
-
-        <div className="mt-6 pt-4 border-t border-border text-xs text-text-muted">
-          Akun bawaan lokal: <code>admin@portfolio.local</code> / sandi:{" "}
-          <code>admin123</code>
-        </div>
       </main>
     </div>
   );
 }
-

@@ -51,12 +51,6 @@ export default async function ProjectsArchivePage({
               <p className="text-sm text-text-secondary">
                 {t("archive.emptyProjects")}
               </p>
-              <Link
-                href="/admin/projects"
-                className="mt-4 inline-flex items-center min-h-[44px] px-4 py-2 rounded-sm bg-primary text-bg font-display text-xs font-semibold"
-              >
-                {t("footer.manageInAdmin")}
-              </Link>
             </div>
           ) : (
             <>

@@ -583,12 +583,6 @@ export default async function HomePage({
                   Brittany Chiang
                 </a>
               </p>
-              <Link
-                href="/admin"
-                className="inline-flex items-center min-h-[44px] text-text-secondary hover:text-primary font-display font-medium underline underline-offset-4"
-              >
-                {t("footer.manageInAdmin")}
-              </Link>
             </footer>
           </main>
         </div>
